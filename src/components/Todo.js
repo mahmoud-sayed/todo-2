@@ -1,33 +1,12 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import TodoData from './TodoData';
 
-import { AiFillCloseCircle } from "react-icons/ai";
-import { AiFillEdit } from 'react-icons/ai';
-
-const Todo = () => {
-
-
-
+const Todo = ({ items }) => {
 
   return (
-    <div
-      className='todo-row'
-    // className={todo.isComplete ? 'todo-row complete' : 'todo-row'}
-
-    >
-      <div >
-
-      </div>
-      <div className='icons'>
-        <AiFillCloseCircle
-
-          className='delete-icon'
-        />
-        <AiFillEdit
-
-          className='edit-icon'
-        />
-      </div>
-    </div>
+    <Fragment>
+      {items.map(item => <TodoData key={item.id} title={item.title} completed={item.completed} />)}
+    </Fragment>
   );
 };
 
